@@ -1,6 +1,11 @@
 package com.hrd.app.article.mainController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,5 +40,13 @@ public class MainController {
 		return "api";
 	}
 	
+	@RequestMapping(value = "/login")
+	public ResponseEntity<Map<String, Object>> login() {
+				
+		Map<String, Object> map = new HashMap<String, Object>();		
+			map.put("STATUS", false);
+			map.put("MESSAGE", "Not Allow A som ki elit");				
+		return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+	}	
 
 }
